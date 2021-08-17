@@ -17,6 +17,6 @@ RUN pip install --user --no-cache-dir -r /requirements.txt
 # add always chwown to each COPY to make airflow the owner
 COPY --chown=airflow:airflow config/airflow.cfg ${AIRFLOW_HOME}/airflow.cfg
 COPY --chown=airflow:airflow dags ${AIRFLOW_HOME}/dags
-COPY --chown=airflow:airflow plugins ${AIRFLOW_HOME}/plugins
+COPY --chown=airflow:airflow shared_utils ${AIRFLOW_HOME}/shared_utils
 
 WORKDIR ${AIRFLOW_HOME}

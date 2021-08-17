@@ -11,7 +11,7 @@ setup-local-python: clean
 	pip3 install -r requirements-providers.txt; \
 	pip3 install -r requirements.txt;
 
-init-local: clean-local init-venv
+init-local: clean-local setup-local-python
 	source ./venv/bin/activate; \
 	./.local/init
 

@@ -35,9 +35,9 @@ services:
       postgres:
         condition: service_healthy
     command: bash -c "airflow db init && airflow webserver"
-    # volumes:
-    #   - ./dags:/usr/local/airflow/dags
-    #   - ./plugins:/usr/local/airflow/plugins
+    volumes:
+      - ./dags:/usr/local/airflow/dags
+      - ./plugins:/usr/local/airflow/shared_utils
     ports:
       - 8080:8080
     healthcheck:
@@ -57,9 +57,9 @@ services:
         condition: service_healthy
     command: |
       airflow scheduler
-    # volumes:
-    #   - ./dags:/usr/local/airflow/dags
-    #   - ./plugins:/usr/local/airflow/plugins
+    volumes:
+      - ./dags:/usr/local/airflow/dags
+      - ./plugins:/usr/local/airflow/shared_utils
     environment:
       <<: *airflow-common-env
 
