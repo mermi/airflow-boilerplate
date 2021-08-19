@@ -47,9 +47,9 @@ def create_dag(customer):
 
 
     dag_id = '{base_name}_{id}'.format(
-        base_name='load_clickstream_data', id=customer['customer_id'])
+        base_name='load_data', id=customer['customer_id'])
 
-    return DAG(dag_id=dag_id, default_args=replaced_args, schedule_interval=customer['schedule_interval'])
+    return DAG(dag_id=dag_id, default_args=replaced_args, schedule_interval=customer['schedule_interval'], tags=['example', 'example_dynamic'])
 
 # Loop the list of customers
 for cust in CUSTOMERS:
