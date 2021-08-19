@@ -33,3 +33,7 @@ airflow-down:
 lint:
 	. ./venv/bin/activate; \
 	python3 -m flake8 .
+
+fix-imports:
+	. ./venv/bin/activate; \
+	python3 -m isort . --skip venv --skip logs
